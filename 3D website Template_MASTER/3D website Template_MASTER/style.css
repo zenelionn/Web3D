@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 */
 
 .navbar_coca_cola {
-    background-color: #760003; /* Set navbar background color */
+    background-color: #000000; /* Set navbar background color */
     /* border-color: yellow; Sets the navbar border color */
     /* border-style: solid; */
     border-width: 0px;
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 /* CSS rule to overwrite the navbar-brand font hover color
 */
 .navbar_coca_cola .navbar-brand:hover {
-    color: green;
+    color: rgb(103, 103, 103);
 }
 
 /* NAVIGATION MENU
@@ -161,7 +161,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
 */
 .navbar_coca_cola .navbar-nav > li > a:hover, 
 .navbar_coca_cola .navbar-nav > li > a:focus {
-    color: green;  
+    color: rgb(102, 102, 102);  
 }
 
 .navbar_coca_cola .navbar-nav .nav-item {
@@ -174,7 +174,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
 .navbar_coca_cola .navbar-nav > .active > a:hover, 
 .navbar_coca_cola .navbar-nav > .active > a:focus {
     color:  #760003; /* Font color for active font */
-    background-color: #3399ff; /* Blue color for background */
+    background-color: #b631312f; /* Blue color for background */
 }
 
 /* A set of CSS rules to change the Bootstrap defaults for the menu link text color, hover, background, focus
@@ -184,7 +184,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
 */
 .navbar_coca_cola .navbar-nav > li > a:hover, 
 .navbar_coca_cola  .navbar-nav > li > a:focus {
-    color: green;  
+    color: rgb(102, 102, 102);  
 }
 
 /* These next two CSS rules control the style of the icon bar */
@@ -336,7 +336,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
     }
     
     #main_text h3 {
-        color: darkcyan;
+        color: darkred;
         font-size:22px;
     }
     
@@ -446,7 +446,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
     }
     
     #main_text h3 {
-        color: darkcyan;
+        color: darkred;
         font-size:22px;
     }
     
@@ -522,7 +522,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
     }
 
     .navbar-text > p {
-        color: rgb(12, 5, 3);
+        color: rgb(255, 255, 255);
         font-size: 23px;
     }
 
