@@ -49,7 +49,7 @@ function init() {
 
   // Load the glTF model
   const loader = new THREE.GLTFLoader();
-  loader.load(assetPath + 'web3dmodelv4.glb', function(gltf) {
+  loader.load(assetPath + 'web3dmodelv5.glb', function(gltf) {
     const model = gltf.scene;
     scene.add(model);
 
