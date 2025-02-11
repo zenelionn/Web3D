@@ -1,4 +1,4 @@
-var scene, camera, renderer, clock, mixer, action = [], mode;
+var scene, camera, renderer, clock, mixer, actions = [], mode;
 
 init();
 
@@ -30,25 +30,26 @@ camera.position.set(-5,25,20);
   controls.target.set(1, 2, 0);
   controls.update();
 
-  // Button to control animations
-  mode = 'open';
-  const btn = document.getElementById("btn");
-  btn.addEventListener('click', function() {
-    if (actions.length === 2) {
-      if (mode === "open") {
-        actions.forEach(action => {
-          action.timeScale = 1;
-          action.reset();
-          action.play();
-        });
-      }
-    }
-  });
+   // Button to control animations
+   mode = 'open';
+   const btn = document.getElementById("btn");
+   btn.addEventListener('click', function() {
+     if (actions.length === 2) {
+       if (mode === "open") {
+         actions.forEach(action => {
+           action.timeScale = 1;
+           action.reset();
+           action.play();
+         });
+       }
+     }
+   });
+ 
 
     
- // Load the glTF model
+  // Load the glTF model
   const loader = new THREE.GLTFLoader();
-  loader.load(assetPath + 'web3Dmodel.glb', function(gltf) {
+  loader.load(assetPath + 'web3dmodelv2.glb', function(gltf) {
     const model = gltf.scene;
     scene.add(model);
     
@@ -62,29 +63,28 @@ camera.position.set(-5,25,20);
     });
 
   });
-
-
-
-  window.addEventListener('resize', onResize, false);
+ 
+  // Handle resizing
+  window.addEventListener('resize', resize, false);
   
+  // Start the animation loop
   animate();
 }
 
+function animate() {
+  requestAnimationFrame(animate);
 
-function animate(){
-    requestAnimationFrame(animate);
-    if (mixer){
-        mixer.update(clock.getDelta());
-    }
+  // Update animations
+  if (mixer) {
+    mixer.update(clock.getDelta());
+  }
 
-    
-    renderer.render(scene, camera);
+  renderer.render(scene, camera);
 }
 
-
-
-function onResize(){
+function resize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
+
