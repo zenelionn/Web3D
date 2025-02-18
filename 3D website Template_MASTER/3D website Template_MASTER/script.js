@@ -37,18 +37,14 @@ function init() {
   mode = 'open';
   const btn = document.getElementById("btn");
   btn.addEventListener('click', function() {
-    console.log("Button clicked. Actions length: " + actions.length); // Check length of actions
     if (actions.length === 1) {
       if (mode === "open") {
         actions.forEach(action => {
-          console.log("Playing action: ", action);
           action.timeScale = 1;
           action.reset();
           action.play();
-        });
+              });
       }
-    } else {
-      console.log("Animations not fully loaded yet.");
     }
   });
 
@@ -70,10 +66,12 @@ function init() {
     }
   });
 
+  
+
  // Add event listener for the play second model animation button
  const playSecondModelAnimationBtn = document.getElementById("playSecondModelAnimation");
- playSecondModelAnimationBtn.addEventListener('click', function () {
-   if (secondModelActions.length === 1) {
+  playSecondModelAnimationBtn.addEventListener('click', function () {
+   if (secondModelActions.length > 0) {
      secondModelActions.forEach(action => {
        action.reset();
        action.setLoop(THREE.LoopOnce); // Play the animation only once
@@ -86,13 +84,11 @@ function init() {
  });
 
 
-  // Load the glTF model
-  const loader = new THREE.GLTFLoader();
-  function loadModel(modelPath) {
-    if(loadedModel){
-      scene.remove(loadedModel);
-
-   }
+ const loader = new THREE.GLTFLoader();
+ function loadModel(modelPath) {
+ if(loadedModel) {
+   scene.remove(loadedModel);
+ }
 
    loader.load(modelPath, function(gltf) {
     const model = gltf.scene;
@@ -112,12 +108,14 @@ function init() {
       actions.push(action);
     });
 
-         // If this is the second model, set up its separate mixer and actions
-         if (modelPath === 'soda_can_crush.glb') {
-          secondModelMixer = mixer;
-          secondModelActions = actions; // Store the second model's animations separately
-        }
-      });
+    if(modelPath === 'soda_can_crush.glb') {
+      secondModelMixer = mixer;
+      secondModelActions = actions;
+      
+    }
+      
+    });
+    
     }
   
   loadModel('web3dmodelv5.glb');
