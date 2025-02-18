@@ -20,7 +20,7 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  const ambient = new THREE.HemisphereLight(0xffffbb, 0x080820, 4);
+  const ambient = new THREE.HemisphereLight(0xffffff, 0xffffff,1);
   scene.add(ambient);
 
   lights = {};
