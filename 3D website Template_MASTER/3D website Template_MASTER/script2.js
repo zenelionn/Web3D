@@ -34,21 +34,17 @@ function init() {
   
 
   // Button to control animations
-  mode = 'open';
+   mode = 'open';
   const btn = document.getElementById("btn");
   btn.addEventListener('click', function() {
-    console.log("Button clicked. Actions length: " + actions.length); // Check length of actions
     if (actions.length === 1) {
       if (mode === "open") {
         actions.forEach(action => {
-          console.log("Playing action: ", action);
           action.timeScale = 1;
           action.reset();
           action.play();
-        });
+              });
       }
-    } else {
-      console.log("Animations not fully loaded yet.");
     }
   });
 
@@ -70,61 +66,66 @@ function init() {
     }
   });
 
- // Add event listener for the play second model animation button
- const playSecondModelAnimationBtn = document.getElementById("playSecondModelAnimation");
- playSecondModelAnimationBtn.addEventListener('click', function () {
-   if (secondModelActions.length === 1) {
-     secondModelActions.forEach(action => {
-       action.reset();
-       action.setLoop(THREE.LoopOnce); // Play the animation only once
-       action.clampWhenFinished = true; // Stop at the last frame
-       action.play();
-     });
-   } else {
-     console.warn('No animation available for the second model.');
-   }
- });
+  const playSecondModelAnimationBtn = document.getElementById("playSecondModelAnimation");
+  playSecondModelAnimationBtn.addEventListener('click', function () {
+
+if(secondModelActions.length>0){
+secondModelActions.forEach(action => {
+  action.reset();
+  action.setLoop(THREE.LoopOnce);
+  action.clampWhenFinished = true;
+  action.play();
+});
+
+} else {
+  console.warn('No animation available for the second model');
+}
+
+});
 
 
-  // Load the glTF model
   const loader = new THREE.GLTFLoader();
-  function loadModel(modelPath) {
-    if(loadedModel){
-      scene.remove(loadedModel);
+function loadModel(modelPath) {
+if(loadedModel) {
+  scene.remove(loadedModel);
+}
 
-   }
+loader.load(modelPath, function (gltf) {
+const model = gltf.scene;
 
-   loader.load(modelPath, function(gltf) {
-    const model = gltf.scene;
+model.position.set(0, 0, 0);
 
-    model.position.set(0,0,0);
+scene.add(model);
 
-    scene.add(model);
+loadedModel = model;
 
-    loadedModel = model;
+mixer = new THREE.AnimationMixer(model);
+const animations = gltf.animations;
+action = [];
 
-    mixer = newTHREE.AnimationMixer(model);
-    const animations = gltf.animations;
-    actions = [];
+animations.forEach(clip=>{
+const action = mixer.clipAction(clip);
+actions.push(action);
 
-    animations.forEach(clip =>{
-      const action = mixer.clipAction(clip);
-      actions.push(action);
-    });
+});
 
-         // If this is the second model, set up its separate mixer and actions
-         if (modelPath === 'soda_can_crush.glb') {
-          secondModelMixer = mixer;
-          secondModelActions = actions; // Store the second model's animations separately
-        }
-      });
-    }
-  
-  loadModel('web3dmodelv5.glb');
-  const switchBtn = document.getElementById("switchModel");
-  switchBtn.addEventListener('click', function(){
-    loadModel('soda_can_crush.glb');
-  });
+if(modelPath === 'soda_can_crush.glb') {
+secondModelMixer = mixer;
+secondModelActions = actions;
+
+}
+
+});
+
+}
+
+loadModel('web3dmodelv5.glb');
+
+const switchBtn = document.getElementById("switchModel");
+switchBtn.addEventListener('click', function () {
+loadModel('soda_can_crush.glb');
+
+});
 
 
 

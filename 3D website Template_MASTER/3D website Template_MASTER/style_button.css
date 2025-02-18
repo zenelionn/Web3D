@@ -6,9 +6,45 @@ body{
 }
 
 #btn{
-    position:absolute;
-    right: 10px;
-    bottom: 10px;
+    position: absolute;
+    left: 10px;
+    bottom: 20.5px;
+    background: #fea;
+    padding: 15px;
+    font-family: arial;
+}
+
+#toggleWireframe{
+    position: absolute;
+    left: 210px;
+    bottom: 20.5px;
+    background: #fea;
+    padding: 15px;
+    font-family: arial;
+}
+
+#switchModel{
+    position: absolute;
+    left: 410px;
+    bottom: 20.5px;
+    background: #fea;
+    padding: 15px;
+    font-family: arial;
+}
+
+#rotateModel{
+    position: absolute;
+    left: 600px;
+    bottom: 20.5px;
+    background: #fea;
+    padding: 15px;
+    font-family: arial;
+}
+
+#playSecondModelAnimation{
+    position: absolute;
+    left: 800px;
+    bottom: 20.5px;
     background: #fea;
     padding: 15px;
     font-family: arial;
