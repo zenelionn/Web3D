@@ -33,6 +33,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    text-align: center;
 	font-family: 'Oswald', sans-serif; 
 	/* font-family: cocaColaFont; */
 }
@@ -173,7 +174,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
 .navbar_coca_cola .navbar-nav .nav-item > .active, 
 .navbar_coca_cola .navbar-nav > .active > a:hover, 
 .navbar_coca_cola .navbar-nav > .active > a:focus {
-    color:  #760003; /* Font color for active font */
+    color:  #d5cbcb; /* Font color for active font */
     background-color: #b631312f; /* Blue color for background */
 }
 
@@ -184,7 +185,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
 */
 .navbar_coca_cola .navbar-nav > li > a:hover, 
 .navbar_coca_cola  .navbar-nav > li > a:focus {
-    color: rgb(102, 102, 102);  
+    color: rgb(255, 139, 139);  
 }
 
 /* These next two CSS rules control the style of the icon bar */
@@ -223,7 +224,7 @@ There is plenty more styling to do than indicated here, in mobile it still defau
 /* CSS rule to style the footer */
 .footer {
     color: #FFF;
-    background-color: #760003;
+    background-color: #842225;
     height: 50px;
 }
 
