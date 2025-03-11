@@ -148,7 +148,7 @@ actions.push(action);
 
 });
 
-if(modelPath === 'soda_can_crush.glb') {
+if(modelPath === '3d model second animation.glb') {
 secondModelMixer = mixer;
 secondModelActions = actions;
 
@@ -162,7 +162,7 @@ loadModel('web3DmodelV6.glb');
 
 const switchBtn = document.getElementById("switchModel");
 switchBtn.addEventListener('click', function () {
-loadModel('soda_can_crush.glb');
+loadModel('3d model second animation.glb');
 
 });
 
