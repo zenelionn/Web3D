@@ -15,7 +15,8 @@ body{
 
 #btn{
     position: absolute;
-    left: 10px;
+    margin: 10px;
+    left: 200px;
     bottom: 20.5px;
     background: #fea;
     padding: 15px;
@@ -24,8 +25,9 @@ body{
 
 #toggleWireframe{
     position: absolute;
-    left: 210px;
+    margin: 10px;
     bottom: 20.5px;
+    left: 670px;
     background: #fea;
     padding: 15px;
     font-family: arial;
@@ -33,8 +35,9 @@ body{
 
 #switchModel{
     position: absolute;
-    left: 410px;
+    margin: 10px;
     bottom: 20.5px;
+    left: 0;
     background: #fea;
     padding: 15px;
     font-family: arial;
@@ -42,8 +45,9 @@ body{
 
 #rotateModel{
     position: absolute;
-    left: 600px;
+    margin: 10px;
     bottom: 20.5px;
+    left: 900px;
     background: #fea;
     padding: 15px;
     font-family: arial;
@@ -51,7 +55,8 @@ body{
 
 #playSecondModelAnimation{
     position: absolute;
-    left: 800px;
+    margin: 10px;
+    left: 400px;
     bottom: 20.5px;
     background: #fea;
     padding: 15px;

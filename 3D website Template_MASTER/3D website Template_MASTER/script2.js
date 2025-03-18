@@ -148,7 +148,7 @@ actions.push(action);
 
 });
 
-if(modelPath === '3d model second animation.glb') {
+if(modelPath === 'kimbra v7 animation v4.glb') {
 secondModelMixer = mixer;
 secondModelActions = actions;
 
@@ -162,7 +162,7 @@ loadModel('web3DmodelV6.glb');
 
 const switchBtn = document.getElementById("switchModel");
 switchBtn.addEventListener('click', function () {
-loadModel('3d model second animation.glb');
+loadModel('kimbra v7 animation v4.glb');
 
 });
 
