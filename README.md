@@ -6,3 +6,6 @@ In order to run the website, please ensure you have live server installed. Then 
 Give it a few moments and it should open up to the front page of my website. From here you can  use the navbar to navigate through the website.
 
 Thank you very much.
+
+Credits for code:
+https://www.w3schools.com/howto/howto_js_slideshow.asp
