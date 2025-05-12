@@ -13,54 +13,65 @@ body{
 
 }
 
-#btn{
-    position: absolute;
-    margin: 10px;
-    left: 200px;
-    bottom: 20.5px;
-    background: #fea;
-    padding: 15px;
-    font-family: arial;
+.btn-group button {
+  background-color: #fffd88; /* Green background */
+  border: 1px solid rgb(188, 122, 72); /* Green border */
+  color: rgb(46, 0, 0); /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
 }
 
-#toggleWireframe{
-    position: absolute;
-    margin: 10px;
-    bottom: 20.5px;
-    left: 670px;
-    background: #fea;
-    padding: 15px;
-    font-family: arial;
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
 }
 
-#switchModel{
-    position: absolute;
-    margin: 10px;
-    bottom: 20.5px;
-    left: 0;
-    background: #fea;
-    padding: 15px;
-    font-family: arial;
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-#rotateModel{
-    position: absolute;
-    margin: 10px;
-    bottom: 20.5px;
-    left: 900px;
-    background: #fea;
-    padding: 15px;
-    font-family: arial;
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #e3c34d;
 }
 
-#playSecondModelAnimation{
+.btn-group{
+    margin: auto;
+}
+
+.animation-group button {
+  background-color: #fffd88; /* Green background */
+  border: 1px solid rgb(188, 122, 72); /* Green border */
+  color: rgb(46, 0, 0); /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+.animation-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.animation-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.animation-group button:hover {
+  background-color: #e3c34d;
+}
+
+.animation-group{
     position: absolute;
-    margin: 10px;
-    left: 400px;
-    bottom: 20.5px;
-    background: #fea;
-    padding: 15px;
-    font-family: arial;
+    bottom: 0;
+    margin: auto;
+
 }
 
 #gui-container {

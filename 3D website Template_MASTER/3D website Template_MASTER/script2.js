@@ -1,6 +1,8 @@
 var scene, camera, renderer, clock, mixer, actions = [], mode, isWireframe = false, params, lights;
 let loadedModel;
+let firstModelMixer, firstModelActions = [];
 let secondModelMixer, secondModelActions = [];
+let thirdModelMixer, thirdModelActions = [];
 
 init();
 
@@ -76,18 +78,19 @@ function init() {
 
   // Button to control animations
    mode = 'open';
-  const btn = document.getElementById("btn");
+  const btn = document.getElementById("ManAnimation");
   btn.addEventListener('click', function() {
     if (actions.length === 1) {
       if (mode === "open") {
         actions.forEach(action => {
-          action.timeScale = 1;
-          action.reset();
-          action.play();
-              });
-      }
-    }
+         action.timeScale = 1;
+         action.reset();
+         action.play();
+             });
+     }
+   }
   });
+
 
   const wireframeBtn = document.getElementById("toggleWireframe");
   wireframeBtn.addEventListener('click', function () {
@@ -110,22 +113,41 @@ function init() {
   const playSecondModelAnimationBtn = document.getElementById("playSecondModelAnimation");
   playSecondModelAnimationBtn.addEventListener('click', function () {
 
-if(secondModelActions.length>0){
-secondModelActions.forEach(action => {
-  action.reset();
-  action.setLoop(THREE.LoopOnce);
-  action.clampWhenFinished = true;
-  action.play();
+    if(secondModelActions.length>0){
+    secondModelActions.forEach(action => {
+      action.reset();
+      action.setLoop(THREE.LoopOnce);
+      action.clampWhenFinished = true;
+      action.play();
+    });
+
+    } else {
+      console.warn('No animation available for the second model');
+    }
+
+  });
+
+
+
+const playLeopardAnimationbtn = document.getElementById('SnowLeopardAnimation');
+playLeopardAnimationbtn.addEventListener('click', function(){
+
+  if(thirdModelActions.length>0){
+    thirdModelActions.forEach(action => {
+      action.reset();
+      action.setLoop(THREE.Loop);
+      action.clampWhenFinished = true;
+      action.play();
+    });
+  } else{
+    console.warn('No animation for third model');
+
+  }
 });
 
-} else {
-  console.warn('No animation available for the second model');
-}
-
-});
 
 
-  const loader = new THREE.GLTFLoader();
+const loader = new THREE.GLTFLoader();
 function loadModel(modelPath) {
 if(loadedModel) {
   scene.remove(loadedModel);
@@ -150,10 +172,19 @@ actions.push(action);
 
 });
 
+if(modelPath === 'web3DmodelV6.glb'){
+  firstModelMixer = mixer;
+  firstModelActions = actions;
+}
+
 if(modelPath === 'kimbra v7 animation v4.glb') {
 secondModelMixer = mixer;
 secondModelActions = actions;
+}
 
+if (modelPath === 'ELI.glb'){
+  thirdModelMixer = mixer;
+  thirdModelActions = actions;
 }
 
 });
@@ -162,11 +193,20 @@ secondModelActions = actions;
 
 loadModel('web3DmodelV6.glb');
 
-const switchBtn = document.getElementById("switchModel");
+const switchBtn = document.getElementById("PowerRanger");
 switchBtn.addEventListener('click', function () {
 loadModel('kimbra v7 animation v4.glb');
-
 });
+
+const snowleopardbtn = document.getElementById("SnowLeopard");
+snowleopardbtn.addEventListener('click', function(){
+  loadModel('ELI.glb');
+});
+
+const manbtn = document.getElementById("Man");
+manbtn.addEventListener('click', function(){
+  loadModel('web3DmodelV6.glb')
+})
 
 
 
