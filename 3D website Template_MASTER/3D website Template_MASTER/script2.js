@@ -116,7 +116,7 @@ function init() {
     if(secondModelActions.length>0){
     secondModelActions.forEach(action => {
       action.reset();
-      action.setLoop(THREE.LoopOnce);
+      action.setLoop(THREE.Loop);
       action.clampWhenFinished = true;
       action.play();
     });
@@ -129,21 +129,21 @@ function init() {
 
 
 
-const playLeopardAnimationbtn = document.getElementById('SnowLeopardAnimation');
-playLeopardAnimationbtn.addEventListener('click', function(){
+//const playLeopardAnimationbtn = document.getElementById('SnowLeopardAnimation');
+//playLeopardAnimationbtn.addEventListener('click', function(){
 
-  if(thirdModelActions.length>0){
-    thirdModelActions.forEach(action => {
-      action.reset();
-      action.setLoop(THREE.Loop);
-      action.clampWhenFinished = true;
-      action.play();
-    });
-  } else{
-    console.warn('No animation for third model');
+  //if(thirdModelActions.length>0){
+    //thirdModelActions.forEach(action => {
+     // action.reset();
+     // action.setLoop(THREE.Loop);
+     // action.clampWhenFinished = true;
+     // action.play();
+   // });
+ // } else{
+   // console.warn('No animation for third model');
 
-  }
-});
+ /// }
+//});
 
 
 
@@ -173,8 +173,8 @@ actions.push(action);
 });
 
 if(modelPath === 'web3DmodelV6.glb'){
-  firstModelMixer = mixer;
-  firstModelActions = actions;
+  mixer = mixer;
+  actions = actions;
 }
 
 if(modelPath === 'kimbra v7 animation v4.glb') {
